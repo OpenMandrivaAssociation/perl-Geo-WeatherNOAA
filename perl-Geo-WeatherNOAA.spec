@@ -1,7 +1,7 @@
 %define module	Geo-WeatherNOAA
 %define name	perl-%{module}
-%define version 4.37
-%define release %mkrel 3
+%define version 4.38
+%define release %mkrel 1
 
 Summary:	Perl extension for interpreting the NOAA weather data
 Name:		%{name}
@@ -13,6 +13,7 @@ Requires:	perl
 URL:		http://search.cpan.org/~msolomon/%{module}-%{version}
 Source:		%{module}-%{version}.tar.bz2
 BuildRequires:	perl-devel
+BuildRequires:  perl(Tie::IxHash)
 Buildroot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
 
@@ -39,6 +40,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT 
+
+%check
+make test
 
 %files
 %defattr(-,root,root)
