@@ -15,7 +15,6 @@ Source:		%{module}-%{version}.tar.bz2
 BuildRequires:	perl-devel
 BuildRequires:  perl(Tie::IxHash)
 BuildRequires:  perl(LWP::Simple)
-Buildroot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
 
 %description
