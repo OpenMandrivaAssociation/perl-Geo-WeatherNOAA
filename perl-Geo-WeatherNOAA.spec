@@ -19,7 +19,6 @@ Buildroot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
 
 %description
-
 This module is intended to interpret the NOAA zone forecasts and current 
 city hourly data files. It should give a programmer an easy time to use 
 the data instead of having to mine it.
