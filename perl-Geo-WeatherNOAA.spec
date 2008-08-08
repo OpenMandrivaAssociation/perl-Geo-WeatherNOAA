@@ -1,7 +1,7 @@
 %define module	Geo-WeatherNOAA
 %define name	perl-%{module}
 %define version 4.38
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary:	Perl extension for interpreting the NOAA weather data
 Name:		%{name}
