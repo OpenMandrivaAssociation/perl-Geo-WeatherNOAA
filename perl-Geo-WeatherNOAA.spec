@@ -1,22 +1,21 @@
-%define module	Geo-WeatherNOAA
-%define name	perl-%{module}
-%define version 4.38
-%define release %mkrel 3
+%define upstream_name	 Geo-WeatherNOAA
+%define upstream_version 4.38
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Perl extension for interpreting the NOAA weather data
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
 License:	GPL
 Group:		Development/Perl
-Requires:	perl
-URL:		http://search.cpan.org/~msolomon/%{module}-%{version}
-Source:		%{module}-%{version}.tar.bz2
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	http://www.cpan.org/modules/by-module/Geo/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires:	perl-devel
 BuildRequires:  perl(Tie::IxHash)
 BuildRequires:  perl(LWP::Simple)
-Buildroot:	%{_tmppath}/%{name}-root
 BuildArch:	noarch
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module is intended to interpret the NOAA zone forecasts and current 
@@ -28,7 +27,7 @@ zero or '') then Geo::WeatherNOAA will be verbose on what it's doing with
 messages sent to STDERR. Useful for debugging. 
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor 
@@ -49,4 +48,3 @@ make test
 %doc README
 %{_mandir}/man3/*
 %{perl_vendorlib}/Geo/*
-
