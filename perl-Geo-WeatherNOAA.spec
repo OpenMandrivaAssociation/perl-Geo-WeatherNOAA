@@ -1,15 +1,13 @@
 %define upstream_name	 Geo-WeatherNOAA
-%define upstream_version 4.38
-
 Name:       perl-%{upstream_name}
-Version:    %{upstream_version}
-Release:    4
+Version:    4.38
+Release:    5
 
 Summary:	Perl extension for interpreting the NOAA weather data
 License:	GPL
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Geo-WeatherNOAA
-Source0:	https://cpan.metacpan.org/authors/id/M/MS/MSOLOMON/Geo-WeatherNOAA-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/M/MS/MSOLOMON/Geo-WeatherNOAA-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -28,7 +26,7 @@ zero or '') then Geo::WeatherNOAA will be verbose on what it's doing with
 messages sent to STDERR. Useful for debugging. 
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor 
@@ -54,9 +52,7 @@ make test
 %changelog
 * Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 4.380.0-1mdv2010.0
 + Revision: 403225
-- rebuild using %%perl_convert_version
-
-* Fri Aug 08 2008 Thierry Vignaud <tv@mandriva.org> 4.38-3mdv2009.0
+- rebuild using %4.38 Fri Aug 08 2008 Thierry Vignaud <tv@mandriva.org> 4.38-3mdv2009.0
 + Revision: 268516
 - rebuild early 2009.0 package (before pixel changes)
 
